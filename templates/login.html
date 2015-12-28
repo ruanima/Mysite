@@ -1,0 +1,10 @@
+{% extends "polls/base.html" %}
+    {% block title %}登录{% endblock %}
+    
+{% block content %}
+<h1>登录页面：</h1>
+<form method = 'post' enctype="multipart/form-data">
+    {{uf.as_p}}
+    <input type="submit" value = "ok" />
+</form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% load staticfiles %}
+
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="utf-8" /> 
+<title>{% block title %}{% endblock %}</title> 
+<link  rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}"/> 
+<!-- www.divcss5.com --> 
+</head> 
+<body> 
+    <ul id="nav"> 
+        <li><a href="{% url 'home' %}">DjangoDemo by Ruan</a></li> 
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'polls:index' %}">Recent Polls</a></li> 
+        <li><a href="{% url 'polls:add_poll' %}">New Poll</a></li> 
+        <li><a href="{% url 'logout_view' %}">Logout</a></li> 
+        {% else %}
+        <li><a href="{% url 'login_view' %}">Login</a></li> 
+        {% endif %}
+    </ul> 
+
+    {% block content %}{% endblock %}
+</body> 
+</html> 
